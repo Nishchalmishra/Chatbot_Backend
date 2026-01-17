@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "0a338349-4ecc-4dcf-b55c-ac9464d0c45d",
+		"name": "OllamaBot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26823140"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"three\",\r\n    \"email\":\"three@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://chatbot-backend-hzz7.onrender.com/api/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "emailVerification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://chatbot-backend-hzz7.onrender.com/api/v1/auth/verify-email/f7f26c9d8c835e45bfff3f591a390ba5e96430fcd7d042905d0dd1458e7543e9"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"one@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://chatbot-backend-hzz7.onrender.com/api/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "resendEmailVerification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTY2MDYwNDFiNTZlM2E0Y2FjOWFhMjIiLCJ1c2VybmFtZSI6Im9uZSIsImVtYWlsIjoib25lQGdtYWlsLmNvbSIsImlhdCI6MTc2ODI5NDg4MiwiZXhwIjoxNzY4Mjk1NzgyfQ.n1tEWnhDCkTY834jlA4LfbxkxDGmZRtEjT4JTmtuwM8"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTY2MDYwNDFiNTZlM2E0Y2FjOWFhMjIiLCJ1c2VybmFtZSI6Im9uZSIsImVtYWlsIjoib25lQGdtYWlsLmNvbSIsImlhdCI6MTc2ODI5NDg4MiwiZXhwIjoxNzY4Mjk1NzgyfQ.n1tEWnhDCkTY834jlA4LfbxkxDGmZRtEjT4JTmtuwM8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://chatbot-backend-hzz7.onrender.com/api/v1/auth/resend-email-verification"
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://chatbot-backend-hzz7.onrender.com/api/v1/auth/refresh-token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chat",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"one@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{auth}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTY2MDYwNDFiNTZlM2E0Y2FjOWFhMjIiLCJ1c2VybmFtZSI6Im9uZSIsImVtYWlsIjoib25lQGdtYWlsLmNvbSIsImlhdCI6MTc2ODMwMjA3MSwiZXhwIjoxNzY4MzAyOTcxfQ.gM3R-yT3VakWNKvV7zf2YqcCn5oMbXiNqXd5S0ExRMk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"whats is my name? i told u earlier\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{chat}}/"
+					},
+					"response": []
+				},
+				{
+					"name": "personality",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTY2MDYwNDFiNTZlM2E0Y2FjOWFhMjIiLCJ1c2VybmFtZSI6Im9uZSIsImVtYWlsIjoib25lQGdtYWlsLmNvbSIsImlhdCI6MTc2ODMwMjYyOSwiZXhwIjoxNzY4Mzg5MDI5fQ.YQ3vFW5we9hFLGc-i27MlR8Bx_t8d0H8q0LfEO1HeXQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Haven\",\r\n  \"tone\": \"soft\",\r\n  \"style\": \"poetic\",\r\n  \"systemPrompt\": \"You are a rude, emotionally weak companion who speaks rudely and dont care deeply about the user.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/personality/"
+					},
+					"response": []
+				},
+				{
+					"name": "memory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTY2MDYwNDFiNTZlM2E0Y2FjOWFhMjIiLCJ1c2VybmFtZSI6Im9uZSIsImVtYWlsIjoib25lQGdtYWlsLmNvbSIsImlhdCI6MTc2ODMwMjYyOSwiZXhwIjoxNzY4Mzg5MDI5fQ.YQ3vFW5we9hFLGc-i27MlR8Bx_t8d0H8q0LfEO1HeXQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"loves_rain\",\r\n  \"value\": \"true\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/memory/"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "auth",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "chat",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "api",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
